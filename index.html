@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRPGEST | El Software de Gestión Empresarial del Futuro</title>
+    <meta name="description" content="Impulsa el crecimiento de tu empresa con MRPGEST. El software ERP moderno, intuitivo y completo.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- BoxIcons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <!-- Estilos Adicionales -->
+    <style>
+        .soluciones-detalle { padding: 100px 0; background: rgba(255,255,255,0.02); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .detalle-item { display: flex; align-items: center; gap: 40px; margin-bottom: 80px; }
+        .detalle-item:nth-child(even) { flex-direction: row-reverse; }
+        .detalle-content { flex: 1; }
+        .detalle-content h3 { font-size: 2rem; margin-bottom: 15px; color: var(--primary); font-family: var(--font-heading); }
+        .detalle-content p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; }
+        .detalle-image { flex: 1; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: var(--shadow-glow); }
+        .detalle-image img { width: 100%; display: block; }
+        
+        .beneficios { padding: 100px 0; text-align: center; }
+        .beneficios-content { max-width: 800px; margin: 0 auto; }
+        .beneficios-content h2 { font-size: 2.5rem; margin-bottom: 25px; line-height: 1.3;}
+        .beneficios-content p { font-size: 1.25rem; color: var(--text-muted); line-height: 1.8; }
+        .beneficios-content p strong { color: var(--primary); font-weight: 700; }
+        
+        .precios { padding: 100px 0; background: linear-gradient(180deg, var(--bg-color) 0%, rgba(99, 102, 241, 0.05) 100%); }
+        .pricing-card { max-width: 450px; margin: 0 auto; background: var(--bg-card); border: 2px solid var(--primary); border-radius: 20px; padding: 40px; text-align: center; position: relative; box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2); }
+        .pricing-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary); color: #fff; padding: 6px 25px; border-radius: 100px; font-weight: bold; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px;}
+        .pricing-price { font-size: 4rem; font-weight: 800; font-family: var(--font-heading); margin: 20px 0; color: var(--text-main); }
+        .pricing-price span { font-size: 1.2rem; color: var(--text-muted); font-weight: 400; }
+        .pricing-features { list-style: none; margin: 30px 0; text-align: left; }
+        .pricing-features li { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; font-size: 1.1rem; color: var(--text-main);}
+        .pricing-features i { color: #10b981; font-size: 1.4rem; }
+        
+        @media (max-width: 768px) {
+            .detalle-item { flex-direction: column !important; gap: 20px; }
+            .pricing-price { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Animación de Fondo Abstracta -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class='bx bxs-cube-alt'></i> MRP<span>GEST</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#soluciones">Soluciones</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#precios">Planes</a></li>
+            </ul>
+            
+            <a href="#contacto" class="btn btn-primary">Prueba Gratis</a>
+            
+            <div class="hamburger">
+                <i class='bx bx-menu'></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <header class="hero" id="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="badge">Nuevo Lanzamiento</div>
+                <h1 class="hero-title">Gestiona todos los procesos de tu <span class="text-gradient">fabrica</span></h1>
+                <p class="hero-description">
+                    Las fabricas Peruanas nesecitan de sistemas agiles, potentes y sin COMPLICACIONES.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contacto" class="btn btn-primary btn-lg">Comenzar Ahora</a>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-outline btn-lg"><i class='bx bx-play-circle'></i> Ver Demo</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="glass-mockup">
+                    <img src="./assets/dashboard-adjunto.png" alt="MRPGEST Dashboard UI">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección Cuadros (Amigable) -->
+    <section class="features">
+        <div class="container section-header">
+            <h2>Sistema <span class="text-gradient">Amigable</span></h2>
+            <p>Herramienta adaptada a la realiadad Peruana, pero con la potencia de un MRP</p>
+        </div>
+        
+        <div class="container grid features-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <div class="feature-card glass-card">
+                <div class="icon-box"><i class='bx bx-file-blank'></i></div>
+                <h3>Cotizaciones</h3>
+                <p>Crea cotizaciones y realiza seguimientos de tus propectos sin perder oportunidades.</p>
+            </div>
+            
+            <div class="feature-card glass-card">
+                <div class="icon-box"><i class='bx bx-notepad'></i></div>
+                <h3>Ordenes de Pedido</h3>
+                <p>Crea Ordenes de Pedido desde una cotizacion confirmada y programa su entrega.</p>
+            </div>
+            
+            <div class="feature-card glass-card">
+                <div class="icon-box"><i class='bx bx-cog'></i></div>
+                <h3>Ordenes de Produccion</h3>
+                <p>Genera Ordenes de Produccion desde Pedidos de tus clientes confirmados, maneja tus materias primas, evita el desperdicio.</p>
+            </div>
+            
+            <div class="feature-card glass-card">
+                <div class="icon-box"><i class='bx bx-cart'></i></div>
+                <h3>Gestion de Compras</h3>
+                <p>Realiza compras automaticas de materias primas a tus proveedores para que no quedes sin materiales.</p>
+            </div>
+            
+            <div class="feature-card glass-card">
+                <div class="icon-box"><i class='bx bx-box'></i></div>
+                <h3>Gestion de Almacen</h3>
+                <p>Controla todos tus ingresos y salidas, maneja tu stock, maximiza el rendimiento de tu almacen.</p>
+            </div>
+            
+            <div class="feature-card glass-card">
+                <div class="icon-box"><i class='bx bx-calendar'></i></div>
+                <h3>Plan Maestro</h3>
+                <p>Vista interactiva de la capacidad de producción y requerimientos diarios y semanales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Soluciones (Descripciones Detalladas) -->
+    <section class="soluciones-detalle" id="soluciones">
+        <div class="container section-header">
+            <h2>Capacidad del <span class="text-gradient">Sistema</span></h2>
+            <p>Conoce en detalle la potencia detrás de cada módulo diseñado para tu fábrica.</p>
+        </div>
+        
+        <div class="container">
+            <div class="detalle-item">
+                <div class="detalle-content">
+                    <h3>Cotizaciones</h3>
+                    <p>Crea cotizaciones y realiza seguimientos de tus propectos sin perder oportunidades. Ten el control total sobre los tratos en curso y proyecta tus ventas con precisión.</p>
+                </div>
+                <div class="detalle-image">
+                    <img src="./assets/cotizaciones.png" alt="Cotizaciones">
+                </div>
+            </div>
+            
+            <div class="detalle-item">
+                <div class="detalle-content">
+                    <h3>Ordenes de Pedido</h3>
+                    <p>Crea Ordenes de Pedido desde una cotizacion confirmada y programa su entrega. Todo centralizado para que el área de ventas y logística trabajen en sintonía perfecta.</p>
+                </div>
+                <div class="detalle-image">
+                    <img src="./assets/ordenes-pedido.png" alt="Órdenes de Pedido">
+                </div>
+            </div>
+            
+            <div class="detalle-item">
+                <div class="detalle-content">
+                    <h3>Ordenes de Produccion</h3>
+                    <p>Genera Ordenes de Produccion desde Pedidos de tus clientes confirmados, maneja tus materias primas, evita el desperdicio. Tu planta productiva nunca estará detenida ni malgastará recursos.</p>
+                </div>
+                <div class="detalle-image">
+                    <img src="./assets/ordenes-produccion.png" alt="Órdenes de Producción">
+                </div>
+            </div>
+
+            <div class="detalle-item">
+                <div class="detalle-content">
+                    <h3>Gestion de Compras</h3>
+                    <p>Realiza compras automaticas de materias primas a tus proveedores para que no quedes sin materiales. Identifica faltantes a tiempo con algoritmos inteligentes de compra.</p>
+                </div>
+                <div class="detalle-image">
+                    <img src="./assets/gestion-compras.png" alt="Gestión de Compras">
+                </div>
+            </div>
+
+            <div class="detalle-item">
+                <div class="detalle-content">
+                    <h3>Gestion de Almacen</h3>
+                    <p>Controla todos tus ingresos y salidas, maneja tu stock, maximiza el rendimiento de tu almacen. Integración perfecta con cada departamento para un costeo transparente.</p>
+                </div>
+                <div class="detalle-image">
+                    <img src="./assets/gestion-almacen.png" alt="Gestión de Almacén">
+                </div>
+            </div>
+
+            <div class="detalle-item">
+                <div class="detalle-content">
+                    <h3>Plan Maestro de Producción</h3>
+                    <p>Vista interactiva de la capacidad de producción y requerimientos diarios y semanales. Visualiza y organiza tu calendario productivo asignando recursos para cada orden de producción, garantizando entregas a tiempo y visibilidad sobre el rendimiento.</p>
+                </div>
+                <div class="detalle-image">
+                    <img src="./assets/plan-maestro.png" alt="Plan Maestro de Producción">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Beneficios -->
+    <section class="beneficios" id="beneficios">
+        <div class="container beneficios-content">
+            <h2>El compañero ideal de la <span class="text-gradient">Industria Peruana</span></h2>
+            <p>
+                Sabemos que la producción nacional requiere de soluciones rápidas y concretas. MRPGEST te ofrece una <strong>herramienta extremadamente fácil de usar</strong>, diseñada para la realidad de nuestro país.
+                <br><br>
+                Ahorra tiempo valioso de capacitación, agiliza tus operaciones sin procesos engorrosos ni opciones innecesarias, y enfócate verdaderamente en producir y crecer.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sección Planes -->
+    <section class="precios" id="precios">
+        <div class="container section-header">
+            <h2>Planes y <span class="text-gradient">Precios</span></h2>
+            <p>Inversión transparente para maximizar tus ganancias.</p>
+        </div>
+        
+        <div class="container">
+            <div class="pricing-card">
+                <div class="pricing-badge">Suscripción Única</div>
+                <h3>Plan MRPGEST</h3>
+                <div class="pricing-price">S/250<span> /mensual</span></div>
+                <ul class="pricing-features">
+                    <li><i class='bx bx-check-circle'></i> Cotizacion</li>
+                    <li><i class='bx bx-check-circle'></i> Ordenes de Pedido</li>
+                    <li><i class='bx bx-check-circle'></i> Ordenes de Produccion</li>
+                    <li><i class='bx bx-check-circle'></i> Ordenes de Despacho</li>
+                    <li><i class='bx bx-check-circle'></i> Almacen</li>
+                    <li><i class='bx bx-check-circle'></i> Plan Maestro de Prod.</li>
+                </ul>
+                <a href="#contacto" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Quiero este Plan</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección CTA / Banner -->
+    <section class="cta-banner" id="contacto">
+        <div class="container glass-banner">
+            <h2>¿Listo para dar el siguiente paso?</h2>
+            <p>La gestion de tu Fabrica nunca sera como antes, cambiate a progresa...</p>
+            <form class="cta-form">
+                <input type="email" placeholder="Tu correo electrónico de empresa" required>
+                <button type="submit" class="btn btn-primary">Solicitar Acceso</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <i class='bx bxs-cube-alt'></i> MRP<span>GEST</span>
+                </a>
+                <p>El estándar en software de gestión empresarial de la nueva era.</p>
+                <div class="social-links">
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Producto</h4>
+                <ul>
+                    <li><a href="#soluciones">Soluciones</a></li>
+                    <li><a href="#precios">Precios</a></li>
+                    <li><a href="#">Casos de Éxito</a></li>
+                    <li><a href="#">Novedades</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Compañía</h4>
+                <ul>
+                    <li><a href="#beneficios">Sobre Nosotros</a></li>
+                    <li><a href="#">Trabaja Aquí</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="#">Centro de Ayuda</a></li>
+                    <li><a href="#">Documentación API</a></li>
+                    <li><a href="#">Estado del Sistema</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>&copy; 2026 MRPGEST. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Main JS -->
+    <script src="./js/main.js"></script>
+</body>
+</html>

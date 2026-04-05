@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: mrpgest-landing-page
+    env: static
+    buildCommand: ""
+    staticPublishPath: ./
