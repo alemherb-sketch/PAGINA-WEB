@@ -65,35 +65,102 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 4. Scroll Reveal Animations (Intersection Observer)
-    const observerOptions = {
+    const revealOptions = {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px"
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
+                entry.target.classList.add('revealed');
+                revealObserver.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, revealOptions);
 
-    // Seleccionamos las tarjetas para animar
-    const featureCards = document.querySelectorAll('.feature-card');
-    featureCards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = `all 0.6s ease ${index * 0.1}s`;
-        observer.observe(card);
+    // Add reveal class to sections we want to animate
+    const revealElements = document.querySelectorAll(
+        '.manifiesto-inner, .feature-card, .stat-item, .detalle-item, .escala-content, .escala-visual, .pricing-card, .glass-banner'
+    );
+    
+    revealElements.forEach((el, index) => {
+        el.classList.add('reveal');
+        // Stagger cards within feature-grid
+        if (el.classList.contains('feature-card') || el.classList.contains('stat-item')) {
+            el.style.transitionDelay = `${index * 0.08}s`;
+        }
+        revealObserver.observe(el);
     });
 
-    const banner = document.querySelector('.glass-banner');
-    if(banner) {
-        banner.style.opacity = '0';
-        banner.style.transform = 'scale(0.95)';
-        banner.style.transition = 'all 0.8s ease';
-        observer.observe(banner);
+    // 5. Animated Counter for Stats
+    const counterOptions = {
+        threshold: 0.5
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counters = entry.target.querySelectorAll('.stat-number');
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += step;
+                        if (current < target) {
+                            counter.textContent = Math.ceil(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    };
+                    updateCounter();
+                });
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, counterOptions);
+
+    const statsBar = document.querySelector('.stats-bar');
+    if (statsBar) {
+        counterObserver.observe(statsBar);
+    }
+
+    // 6. Animated Progress Bars
+    const progressOptions = {
+        threshold: 0.5
+    };
+
+    const progressObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const fills = entry.target.querySelectorAll('.progress-fill');
+                fills.forEach((fill, i) => {
+                    setTimeout(() => {
+                        fill.classList.add('animated');
+                    }, i * 200);
+                });
+                progressObserver.unobserve(entry.target);
+            }
+        });
+    }, progressOptions);
+
+    const progressBars = document.querySelector('.progress-bars');
+    if (progressBars) {
+        progressObserver.observe(progressBars);
+    }
+
+    // 7. Parallax effect on hero image
+    const heroImage = document.querySelector('.glass-mockup');
+    if (heroImage) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            if (scrolled < window.innerHeight) {
+                heroImage.style.transform = `rotateY(-10deg) rotateX(5deg) translateY(${scrolled * 0.05}px)`;
+            }
+        });
     }
 });
