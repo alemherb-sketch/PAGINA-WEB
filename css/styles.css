@@ -630,6 +630,7 @@ a {
 
 .detalle-image {
     flex: 1;
+    position: relative;
     border-radius: 20px;
     overflow: hidden;
     border: 1px solid rgba(255,255,255,0.1);
@@ -645,6 +646,37 @@ a {
 .detalle-image img {
     width: 100%;
     display: block;
+}
+
+/* Floating Highlight Badge */
+.image-highlight-badge {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(7, 9, 19, 0.9);
+    color: var(--text-main);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(99, 102, 241, 0.5);
+    border: 1px solid var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: floatBadge 3s ease-in-out infinite;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+}
+
+.image-highlight-badge i {
+    color: var(--accent);
+    font-size: 1.3rem;
+}
+
+@keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 }
 
 /* =======================
