@@ -163,4 +163,65 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // 8. Modal Formulario WhatsApp
+    const modal = document.getElementById('contactModal');
+    const closeModal = document.getElementById('closeModal');
+    const whatsappForm = document.getElementById('whatsappForm');
+    
+    // Select all buttons that should open the modal
+    const actionButtons = document.querySelectorAll('a[href^="https://wa.me"], a[href="#contacto"], .btn, .whatsapp-float');
+    
+    actionButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Check if it's a link to wa.me or #contacto
+            const href = btn.getAttribute('href');
+            if (href && (href.startsWith('https://wa.me') || href === '#contacto')) {
+                e.preventDefault();
+                modal.classList.add('active');
+            }
+        });
+    });
+
+    if (closeModal) {
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+    }
+
+    // Close on click outside
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+    }
+
+    // Handle form submission
+    if (whatsappForm) {
+        whatsappForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value;
+            const ruc = document.getElementById('ruc').value;
+            const celular = document.getElementById('celular').value;
+            const correo = document.getElementById('correo').value;
+            const tipoFabrica = document.getElementById('tipoFabrica').value;
+            const ciudad = document.getElementById('ciudad').value;
+
+            // Construir el mensaje de WhatsApp
+            const mensaje = `Hola, estoy interesado en MRPGEST.%0A%0A*Mis Datos:*%0A- *Nombre:* ${nombre}%0A- *RUC:* ${ruc}%0A- *Celular:* ${celular}%0A- *Correo:* ${correo}%0A- *Tipo de Fábrica:* ${tipoFabrica}%0A- *Ciudad:* ${ciudad}`;
+            
+            // Reemplazar espacios y caracteres especiales si es necesario, aunque %0A ya maneja los saltos
+            const whatsappUrl = `https://wa.me/51950792233?text=${mensaje}`;
+            
+            // Abrir WhatsApp
+            window.open(whatsappUrl, '_blank');
+            
+            // Cerrar modal y resetear form
+            modal.classList.remove('active');
+            whatsappForm.reset();
+        });
+    }
 });

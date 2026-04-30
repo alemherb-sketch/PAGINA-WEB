@@ -480,6 +480,48 @@
         <span class="whatsapp-tooltip">¿Tienes dudas? ¡Escríbenos!</span>
     </a>
 
+    <!-- Modal Formulario de Contacto -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-content glass-card">
+            <button class="modal-close" id="closeModal" aria-label="Cerrar"><i class='bx bx-x'></i></button>
+            <div class="modal-header">
+                <h3>Da el siguiente paso</h3>
+                <p>Déjanos tus datos y un especialista se pondrá en contacto contigo enseguida.</p>
+            </div>
+            <form id="whatsappForm" class="modal-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" required placeholder="Ej: Juan Pérez">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="ruc">RUC / DNI</label>
+                        <input type="text" id="ruc" required placeholder="Documento">
+                    </div>
+                    <div class="form-group">
+                        <label for="celular">Celular</label>
+                        <input type="tel" id="celular" required placeholder="Tu número">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" id="correo" required placeholder="correo@empresa.com">
+                </div>
+                <div class="form-group">
+                    <label for="tipoFabrica">Tipo de Fábrica</label>
+                    <input type="text" id="tipoFabrica" required placeholder="Ej: Textil, Alimentos...">
+                </div>
+                <div class="form-group">
+                    <label for="ciudad">Ciudad / País</label>
+                    <input type="text" id="ciudad" required placeholder="Ej: Lima, Perú">
+                </div>
+                <button type="submit" class="btn btn-primary btn-submit">
+                    <i class='bx bxl-whatsapp'></i> Enviar a WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
     <!-- Main JS -->
     <script src="./js/main.js"></script>
 </body>
